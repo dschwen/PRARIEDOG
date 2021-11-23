@@ -17,13 +17,8 @@
 
 #include "Kernel.h"
 
-//Forward Declarations
-class EventInserterSource;
 class EventInserterBase;
 class GaussianUserObject;
-
-template<>
-InputParameters validParams<EventInserterSource>();
 
 /**
  * Define the Kernel for inserting events based on an
@@ -35,6 +30,8 @@ class EventInserterSource : public Kernel
 public:
 
   EventInserterSource(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
 protected:
   /**

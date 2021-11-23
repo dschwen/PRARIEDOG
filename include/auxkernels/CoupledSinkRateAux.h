@@ -17,16 +17,12 @@
 
 #include "AuxKernel.h"
 
-//Forward Declarations
-class CoupledSinkRateAux;
-
-template<>
-InputParameters validParams<CoupledSinkRateAux>();
-
 class CoupledSinkRateAux : public AuxKernel
 {
 public:
   CoupledSinkRateAux(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
 protected:
   virtual Real computeValue();

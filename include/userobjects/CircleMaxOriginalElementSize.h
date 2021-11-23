@@ -18,12 +18,6 @@
 #include "ElementUserObject.h"
 #include "MooseMesh.h"
 
-//Forward Declarations
-class CircleMaxOriginalElementSize;
-
-template<>
-InputParameters validParams<CircleMaxOriginalElementSize>();
-
 /**
  * Computes the max element size inside a circle on the *original* mesh
  */
@@ -31,6 +25,8 @@ class CircleMaxOriginalElementSize : public ElementUserObject
 {
 public:
   CircleMaxOriginalElementSize(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
   /**
    * Given a Point and a radius, return the max element size inside a circle on

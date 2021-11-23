@@ -16,17 +16,14 @@
 
 #include "Reaction.h"
 
-//Forward Declarations
-class SinkMapKernel;
 class SinkMapUserObject;
-
-template<>
-InputParameters validParams<SinkMapKernel>();
 
 class SinkMapKernel : public Reaction
 {
 public:
   SinkMapKernel(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
 protected:
   virtual void computeResidual() override;

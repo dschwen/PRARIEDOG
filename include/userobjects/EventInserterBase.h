@@ -11,12 +11,8 @@
 #include "RandomPointUserObject.h"
 #include "MooseRandom.h"
 
-class EventInserterBase;
 class InserterPointCircleAverageMaterialProperty;
 class CircleMaxOriginalElementSize;
-
-template<>
-InputParameters validParams<EventInserterBase>();
 
 /**
  * This UserObject manages the insertion and timing of events in the simulation
@@ -27,6 +23,8 @@ class EventInserterBase : public GeneralUserObject
 {
 public:
   EventInserterBase(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
   virtual void initialSetup();
 

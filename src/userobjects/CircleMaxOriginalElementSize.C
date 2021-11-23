@@ -16,10 +16,9 @@
 
 #include "libmesh/parallel_algebra.h"
 
-template<>
-InputParameters validParams<CircleMaxOriginalElementSize>()
+InputParameters CircleMaxOriginalElementSize::validParams()
 {
-  InputParameters params = validParams<ElementUserObject>();
+  InputParameters params = ElementUserObject::validParams();
   params.addCoupledVar("periodic_variable", "Use perodic boundary conditions of this variable to determine the distance to the function peak location");
 
   // the mapping needs to run at timestep begin, which is after the adaptivity

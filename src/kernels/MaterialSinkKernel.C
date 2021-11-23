@@ -13,10 +13,9 @@
 /****************************************************************/
 #include "MaterialSinkKernel.h"
 
-template<>
-InputParameters validParams<MaterialSinkKernel>()
+InputParameters MaterialSinkKernel::validParams()
 {
-  InputParameters params = validParams<Reaction>();
+  InputParameters params = Reaction::validParams();
 
   params.addRequiredParam<MaterialPropertyName>("diffusivity_name", "Name of the material property for diffusion coefficient.");
   params.addRequiredParam<MaterialPropertyName>("sink_strength_name", "Name of the material property for sink strength.");

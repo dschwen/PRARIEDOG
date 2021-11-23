@@ -9,11 +9,6 @@
 
 #include "EventInserterBase.h"
 
-class EventInserter;
-
-template<>
-InputParameters validParams<EventInserter>();
-
 /**
  * This UserObject manages the insertion and timing of events in the simulation
  * domain. It manages a list of events with their insertion times and their center
@@ -23,6 +18,8 @@ class EventInserter : public EventInserterBase
 {
 public:
   EventInserter(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
 protected:
   /// Compute the mean event timing, required for derived class

@@ -24,15 +24,12 @@
 // libmesh includes
 #include "libmesh/mesh_tools.h"
 
-class EventMarker;
-
-template<>
-InputParameters validParams<EventMarker>();
-
 class EventMarker : public Marker, public Coupleable
 {
 public:
   EventMarker(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
   // copying these from EventInserter.h
 

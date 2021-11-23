@@ -16,10 +16,9 @@
 
 #include "libmesh/parallel_algebra.h"
 
-template<>
-InputParameters validParams<CircleAverageMaterialProperty>()
+InputParameters CircleAverageMaterialProperty::validParams()
 {
-  InputParameters params = validParams<CircleAverageMaterialPropertyBase>();
+  InputParameters params = CircleAverageMaterialPropertyBase::validParams();
 
   return params;
 }

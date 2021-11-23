@@ -35,10 +35,9 @@
 #include "CircleAverageMaterialPropertyAux.h"
 #include "Recombination.h"
 
-template<>
-InputParameters validParams<PrariedogApp>()
+InputParameters PrariedogApp::validParams()
 {
-  InputParameters params = validParams<MooseApp>();
+  InputParameters params = MooseApp::validParams();
   return params;
 }
 

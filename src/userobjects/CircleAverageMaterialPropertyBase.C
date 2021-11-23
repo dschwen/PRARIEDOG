@@ -14,10 +14,9 @@
 
 #include "CircleAverageMaterialPropertyBase.h"
 
-template<>
-InputParameters validParams<CircleAverageMaterialPropertyBase>()
+InputParameters CircleAverageMaterialPropertyBase::validParams()
 {
-  InputParameters params = validParams<ElementIntegralUserObject>();
+  InputParameters params = ElementIntegralUserObject::validParams();
 
   params.addRequiredParam<MaterialPropertyName>("mat_prop", "The name of the material property we are going to use.");
   params.addCoupledVar("periodic_variable", "Use perodic boundary conditions of this variable to determine the distance to the function peak location.");

@@ -17,10 +17,9 @@
 
 #include "libmesh/parallel_algebra.h"
 
-template<>
-InputParameters validParams<InserterPointCircleAverageMaterialProperty>()
+InputParameters InserterPointCircleAverageMaterialProperty::validParams()
 {
-  InputParameters params = validParams<CircleAverageMaterialPropertyBase>();
+  InputParameters params = CircleAverageMaterialPropertyBase::validParams();
 
   params.addRequiredParam<UserObjectName>("inserter", "Name of the EventInserter UserObject.");
   params.addRequiredParam<Real>("radius", "Radius of circle to average material property in.");

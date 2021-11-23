@@ -16,15 +16,12 @@
 
 #include "Kernel.h"
 
-class Recombination;
-
-template <>
-InputParameters validParams<Recombination>();
-
 class Recombination : public Kernel
 {
 public:
   Recombination(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
 protected:
   virtual Real computeQpResidual();

@@ -14,9 +14,9 @@
 
 #include "Recombination.h"
 
-template <> InputParameters validParams<Recombination>()
+InputParameters Recombination::validParams()
 {
-  InputParameters params = validParams<Kernel>();
+  InputParameters params = Kernel::validParams();
 
   params.addRequiredCoupledVar("other_variable", "The coupled variable.");
 

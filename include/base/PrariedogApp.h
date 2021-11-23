@@ -3,15 +3,12 @@
 
 #include "MooseApp.h"
 
-class PrariedogApp;
-
-template<>
-InputParameters validParams<PrariedogApp>();
-
 class PrariedogApp : public MooseApp
 {
 public:
   PrariedogApp(InputParameters parameters);
+  static InputParameters validParams();
+
   virtual ~PrariedogApp();
 
   static void registerApps();
