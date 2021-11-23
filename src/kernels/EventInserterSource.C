@@ -16,10 +16,9 @@
 #include "EventInserterBase.h"
 #include "GaussianUserObject.h"
 
-template<>
-InputParameters validParams<EventInserterSource>()
+InputParameters EventInserterSource::validParams()
 {
-  InputParameters params = validParams<Kernel>();
+  InputParameters params = Kernel::validParams();
   params.addRequiredParam<UserObjectName>("inserter", "The name of the EventInserter UserObject.");
   params.addParam<UserObjectName>("gaussian_user_object", "The name of the GaussianUserObject.");
   params.addParam<bool>("uniform_source", false, "If true, the source term will be uniform over the whole domain with the value set by the 'magnitude' parameter.");

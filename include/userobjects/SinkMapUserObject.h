@@ -9,11 +9,7 @@
 
 #include "ElementUserObject.h"
 
-class SinkMapUserObject;
 class GaussianUserObject;
-
-template<>
-InputParameters validParams<SinkMapUserObject>();
 
 /**
  * This UserObject maintains a per QP map that holds the sink strength.
@@ -22,6 +18,8 @@ class SinkMapUserObject : public ElementUserObject
 {
 public:
   SinkMapUserObject(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
   virtual void initialSetup();
   virtual void initialize();

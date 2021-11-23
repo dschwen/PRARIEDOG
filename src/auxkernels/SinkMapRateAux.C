@@ -14,10 +14,9 @@
 
 #include "SinkMapRateAux.h"
 
-template<>
-InputParameters validParams<SinkMapRateAux>()
+InputParameters SinkMapRateAux::validParams()
 {
-  InputParameters params = validParams<SinkMapAux>();
+  InputParameters params = SinkMapAux::validParams();
   params.addRequiredParam<MaterialPropertyName>("diffusivity_name", "The name of the diffusivity material property.");
   params.addRequiredCoupledVar("solution_variable", "The name of the solution variable.");
   return params;

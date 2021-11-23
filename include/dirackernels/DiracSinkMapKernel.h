@@ -18,17 +18,14 @@
 // Moose Includes
 #include "DiracKernel.h"
 
-//Forward Declarations
-class DiracSinkMapKernel;
 class SinkMapUserObject;
-
-template<>
-InputParameters validParams<DiracSinkMapKernel>();
 
 class DiracSinkMapKernel : public DiracKernel
 {
 public:
   DiracSinkMapKernel(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
   virtual void addPoints();
   virtual Real computeQpResidual();

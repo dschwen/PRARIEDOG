@@ -16,10 +16,9 @@
 
 #include <time.h>  // for time function to seed random number generator
 
-template<>
-InputParameters validParams<RandomPointUserObject>()
+InputParameters RandomPointUserObject::validParams()
 {
-  InputParameters params = validParams<GeneralUserObject>();
+  InputParameters params = GeneralUserObject::validParams();
 
   params.addParam<unsigned int>("seed", 0, "The seed for the random number generator");
   return params;

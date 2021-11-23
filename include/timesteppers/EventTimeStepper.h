@@ -18,11 +18,6 @@
 #include "EventInserterBase.h"
 #include "UserObjectInterface.h"
 
-class EventTimeStepper;
-
-template<>
-InputParameters validParams<EventTimeStepper>();
-
 /**
  * Adjust the timestep to line up with events determined in an EventInserter UserObject.
  * This time stepper allows the user to specify a factor to apply to the previous timestep.
@@ -33,6 +28,8 @@ class EventTimeStepper :
 {
 public:
   EventTimeStepper(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
 protected:
   virtual void init();

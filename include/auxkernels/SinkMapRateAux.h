@@ -17,16 +17,12 @@
 
 #include "SinkMapAux.h"
 
-//Forward Declarations
-class SinkMapRateAux;
-
-template<>
-InputParameters validParams<SinkMapRateAux>();
-
 class SinkMapRateAux : public SinkMapAux
 {
 public:
   SinkMapRateAux(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
 protected:
   virtual Real computeValue();

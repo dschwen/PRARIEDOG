@@ -6,10 +6,9 @@
 /****************************************************************/
 #include "EventInserter.h"
 
-template<>
-InputParameters validParams<EventInserter>()
+InputParameters EventInserter::validParams()
 {
-  InputParameters params = validParams<EventInserterBase>();
+  InputParameters params = EventInserterBase::validParams();
 
   params.addRequiredParam<Real>("mean", "Mean (time) of probability distribution");
 

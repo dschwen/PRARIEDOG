@@ -14,10 +14,9 @@
 
 #include "EventMarker.h"
 
-template<>
-InputParameters validParams<EventMarker>()
+InputParameters EventMarker::validParams()
 {
-  InputParameters params = validParams<Marker>();
+  InputParameters params = Marker::validParams();
 
   params.addRequiredParam<UserObjectName>("inserter", "The name of the EventInserter UserObject.");
   params.addRequiredParam<UserObjectName>("gaussian_user_object", "The name of the GaussianUserObject.");

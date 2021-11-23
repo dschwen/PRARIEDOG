@@ -20,12 +20,6 @@
 #include "Coupleable.h"
 #include "MooseMesh.h"
 
-// Forward declarations
-class GaussianFunction;
-
-template<>
-InputParameters validParams<GaussianFunction>();
-
 /**
  * A function generating Gaussian functions in any dimension.
  * Function will integrate to 1 provided sigma << L (width of domain) and mesh density is sufficient
@@ -41,6 +35,8 @@ public:
    * @param parameters The parameters object holding data for the class to use.
    */
   GaussianFunction(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
   /**
    * Return the function value for the given point

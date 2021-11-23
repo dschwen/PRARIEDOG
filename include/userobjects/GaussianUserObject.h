@@ -20,12 +20,7 @@
 #include "Coupleable.h"
 #include "MooseMesh.h"
 
-// Forward declarations
-class GaussianUserObject;
 class RandomPointUserObject;
-
-template<>
-InputParameters validParams<GaussianUserObject>();
 
 /**
  * An object for evaluating Gaussian functions
@@ -42,6 +37,8 @@ public:
    * @param parameters The parameters object holding data for the class to use.
    */
   GaussianUserObject(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
   virtual void initialSetup();
   virtual void initialize(){}  // Not used

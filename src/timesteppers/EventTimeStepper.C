@@ -15,10 +15,9 @@
 // MOOSE includes
 #include "EventTimeStepper.h"
 
-template<>
-InputParameters validParams<EventTimeStepper>()
+InputParameters EventTimeStepper::validParams()
 {
-  InputParameters params = validParams<TimeStepper>();
+  InputParameters params = TimeStepper::validParams();
   params.addClassDescription("Adjust the timestep based on EventInserter.");
   params.addRequiredParam<UserObjectName>("event_inserter", "Name of the EventInserter user object.");
   params.addRequiredParam<Real>("dt", "The initial timestep size.");

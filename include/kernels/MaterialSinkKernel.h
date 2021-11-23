@@ -16,16 +16,12 @@
 
 #include "Reaction.h"
 
-//Forward Declarations
-class MaterialSinkKernel;
-
-template<>
-InputParameters validParams<MaterialSinkKernel>();
-
 class MaterialSinkKernel : public Reaction
 {
 public:
   MaterialSinkKernel(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
 protected:
   virtual Real computeQpResidual();

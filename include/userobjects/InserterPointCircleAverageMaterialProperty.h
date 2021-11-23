@@ -18,12 +18,7 @@
 #include "CircleAverageMaterialPropertyBase.h"
 #include "MooseMesh.h"
 
-//Forward Declarations
-class InserterPointCircleAverageMaterialProperty;
 class EventInserterBase;
-
-template<>
-InputParameters validParams<InserterPointCircleAverageMaterialProperty>();
 
 /**
  * Computes the average value of a material property in side a circle
@@ -32,6 +27,8 @@ class InserterPointCircleAverageMaterialProperty : public CircleAverageMaterialP
 {
 public:
   InserterPointCircleAverageMaterialProperty(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
   /**
    * Look up average material property value by Point if it is in an Event list.

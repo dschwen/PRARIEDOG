@@ -20,16 +20,12 @@
 #include "MooseMesh.h"
 #include "MooseRandom.h"
 
-//Forward Declarations
-class RandomPointUserObject;
-
-template<>
-InputParameters validParams<RandomPointUserObject>();
-
 class RandomPointUserObject : public GeneralUserObject
 {
 public:
   RandomPointUserObject(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
   /**
    * Returns a Point located randomly on mesh

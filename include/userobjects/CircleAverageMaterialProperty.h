@@ -17,12 +17,6 @@
 
 #include "CircleAverageMaterialPropertyBase.h"
 
-//Forward Declarations
-class CircleAverageMaterialProperty;
-
-template<>
-InputParameters validParams<CircleAverageMaterialProperty>();
-
 /**
  * Computes the average value of a material property in side a circle
  */
@@ -30,6 +24,8 @@ class CircleAverageMaterialProperty : public CircleAverageMaterialPropertyBase
 {
 public:
   CircleAverageMaterialProperty(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
   /**
    * Given a Point and a radius, return the average value for a material property in that circle

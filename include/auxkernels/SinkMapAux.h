@@ -17,17 +17,14 @@
 
 #include "AuxKernel.h"
 
-//Forward Declarations
-class SinkMapAux;
 class SinkMapUserObject;
-
-template<>
-InputParameters validParams<SinkMapAux>();
 
 class SinkMapAux : public AuxKernel
 {
 public:
   SinkMapAux(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
 protected:
   virtual void precalculateValue();

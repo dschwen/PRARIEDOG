@@ -14,10 +14,9 @@
 #include "SinkMapKernel.h"
 #include "SinkMapUserObject.h"
 
-template<>
-InputParameters validParams<SinkMapKernel>()
+InputParameters SinkMapKernel::validParams()
 {
-  InputParameters params = validParams<Reaction>();
+  InputParameters params = Reaction::validParams();
 
   params.addRequiredParam<UserObjectName>("sink_map_user_object", "The name of the SinkMapUserObject.");
   params.addRequiredParam<MaterialPropertyName>("diffusivity_name", "Name of the material property for diffusion coefficient");

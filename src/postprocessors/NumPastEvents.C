@@ -14,10 +14,9 @@
 
 #include "NumPastEvents.h"
 
-template<>
-InputParameters validParams<NumPastEvents>()
+InputParameters NumPastEvents::validParams()
 {
-  InputParameters params = validParams<GeneralPostprocessor>();
+  InputParameters params = GeneralPostprocessor::validParams();
 
   params.addRequiredParam<UserObjectName>("inserter", "The name of the Inserter user object");
 

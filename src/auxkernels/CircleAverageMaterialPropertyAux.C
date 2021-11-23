@@ -15,10 +15,9 @@
 #include "CircleAverageMaterialPropertyAux.h"
 #include "CircleAverageMaterialProperty.h"
 
-template<>
-InputParameters validParams<CircleAverageMaterialPropertyAux>()
+InputParameters CircleAverageMaterialPropertyAux::validParams()
 {
-  InputParameters params = validParams<AuxKernel>();
+  InputParameters params = AuxKernel::validParams();
 
   params.addRequiredParam<UserObjectName>("circle_average_material_property_user_object", "The CircleAverageMaterialProperty to retrieve values from.");
   params.addRequiredParam<Real>("radius", "Distance to search around for material properties.");

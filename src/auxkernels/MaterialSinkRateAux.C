@@ -13,10 +13,9 @@
 /****************************************************************/
 #include "MaterialSinkRateAux.h"
 
-template<>
-InputParameters validParams<MaterialSinkRateAux>()
+InputParameters MaterialSinkRateAux::validParams()
 {
-  InputParameters params = validParams<AuxKernel>();
+  InputParameters params = AuxKernel::validParams();
 
   params.addRequiredParam<MaterialPropertyName>("diffusivity_name", "Name of the material property for diffusion coefficient.");
   params.addRequiredParam<MaterialPropertyName>("sink_strength_name", "Name of the material property for sink strength.");

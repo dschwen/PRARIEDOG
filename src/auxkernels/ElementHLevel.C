@@ -14,10 +14,9 @@
 
 #include "ElementHLevel.h"
 
-template<>
-InputParameters validParams<ElementHLevel>()
+InputParameters ElementHLevel::validParams()
 {
-  InputParameters params = validParams<AuxKernel>();
+  InputParameters params = AuxKernel::validParams();
   return params;
 }
 

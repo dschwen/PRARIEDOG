@@ -18,16 +18,12 @@
 // Moose Includes
 #include "DiracKernel.h"
 
-//Forward Declarations
-class MaterialDiracSinkKernel;
-
-template<>
-InputParameters validParams<MaterialDiracSinkKernel>();
-
 class MaterialDiracSinkKernel : public DiracKernel
 {
 public:
   MaterialDiracSinkKernel(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
   virtual void addPoints();
   virtual Real computeQpResidual();
