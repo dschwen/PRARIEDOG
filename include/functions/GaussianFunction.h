@@ -29,6 +29,7 @@ class GaussianFunction :
   public Coupleable
 {
 public:
+  using Function::value;
 
   /**
    * Class constructor
