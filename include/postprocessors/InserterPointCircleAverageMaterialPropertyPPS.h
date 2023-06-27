@@ -17,11 +17,7 @@
 
 #include "GeneralPostprocessor.h"
 
-class InserterPointCircleAverageMaterialPropertyPPS;
 class InserterPointCircleAverageMaterialProperty;
-
-template<>
-InputParameters validParams<InserterPointCircleAverageMaterialPropertyPPS>();
 
 /**
  * This PPS just retrieves the value from InserterPointCircleAverageMaterialProperty User Object
@@ -29,14 +25,15 @@ InputParameters validParams<InserterPointCircleAverageMaterialPropertyPPS>();
 class InserterPointCircleAverageMaterialPropertyPPS : public GeneralPostprocessor
 {
 public:
-  InserterPointCircleAverageMaterialPropertyPPS(const InputParameters & parameters);
+  InserterPointCircleAverageMaterialPropertyPPS(const InputParameters &parameters);
+  static InputParameters validParams();
 
-  virtual void initialize() {};  // not used
-  virtual void execute() {};  // not used
+  virtual void initialize(){}; // not used
+  virtual void execute(){};    // not used
   virtual Real getValue();
 
 protected:
-  const InserterPointCircleAverageMaterialProperty & _uo;
+  const InserterPointCircleAverageMaterialProperty &_uo;
   const Point _p;
 };
 

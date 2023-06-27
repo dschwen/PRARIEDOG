@@ -12,7 +12,6 @@
 /*            See COPYRIGHT for full restrictions               */
 /****************************************************************/
 
-
 #ifndef RANDOMPOINTUSEROBJECT_H
 #define RANDOMPOINTUSEROBJECT_H
 
@@ -20,34 +19,28 @@
 #include "MooseMesh.h"
 #include "MooseRandom.h"
 
-//Forward Declarations
-class RandomPointUserObject;
-
-template<>
-InputParameters validParams<RandomPointUserObject>();
-
 class RandomPointUserObject : public GeneralUserObject
 {
 public:
-  RandomPointUserObject(const InputParameters & parameters);
+  RandomPointUserObject(const InputParameters &parameters);
+  static InputParameters validParams();
 
   /**
    * Returns a Point located randomly on mesh
    */
   Point getRandomPoint() const;
 
-  virtual void initialize(){} // not used
+  virtual void initialize() {} // not used
 
-  virtual void execute(){}  // not used
+  virtual void execute() {} // not used
 
-  virtual void finalize(){}  //not used
+  virtual void finalize() {} // not used
 
 protected:
-  MooseMesh & _mesh;
+  MooseMesh &_mesh;
 
   /// Random number generator instance, mutable so it can be used inside const functions
-  MooseRandom & _random;
-
+  MooseRandom &_random;
 };
 
 #endif

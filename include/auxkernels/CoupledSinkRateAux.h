@@ -17,23 +17,18 @@
 
 #include "AuxKernel.h"
 
-//Forward Declarations
-class CoupledSinkRateAux;
-
-template<>
-InputParameters validParams<CoupledSinkRateAux>();
-
 class CoupledSinkRateAux : public AuxKernel
 {
 public:
-  CoupledSinkRateAux(const InputParameters & parameters);
+  CoupledSinkRateAux(const InputParameters &parameters);
+  static InputParameters validParams();
 
 protected:
   virtual Real computeValue();
 
-  const MaterialProperty<Real> & _diffusivity;
-  const VariableValue & _v;
-  const VariableValue & _sink_strength;
+  const MaterialProperty<Real> &_diffusivity;
+  const VariableValue &_v;
+  const VariableValue &_sink_strength;
 };
 
 #endif // COUPLEDSINKRATEAUX_H

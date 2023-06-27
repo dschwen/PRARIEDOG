@@ -13,11 +13,13 @@
 /****************************************************************/
 
 #include "NumPastEvents.h"
+#include "EventInserterBase.h"
 
-template<>
-InputParameters validParams<NumPastEvents>()
+registerMooseObject("PrariedogApp", NumPastEvents);
+
+InputParameters NumPastEvents::validParams()
 {
-  InputParameters params = validParams<GeneralPostprocessor>();
+  auto params = GeneralPostprocessor::validParams();
 
   params.addRequiredParam<UserObjectName>("inserter", "The name of the Inserter user object");
 

@@ -16,10 +16,11 @@
 
 #include <time.h>  // for time function to seed random number generator
 
-template<>
-InputParameters validParams<RandomPointUserObject>()
+registerMooseObject("PrariedogApp", RandomPointUserObject);
+
+InputParameters RandomPointUserObject::validParams()
 {
-  InputParameters params = validParams<GeneralUserObject>();
+  auto params = GeneralUserObject::validParams();
 
   params.addParam<unsigned int>("seed", 0, "The seed for the random number generator");
   return params;

@@ -16,12 +16,8 @@
 #define NUMPASTEVENTS_H
 
 #include "GeneralPostprocessor.h"
-#include "EventInserterBase.h"
 
-class NumPastEvents;
-
-template<>
-InputParameters validParams<NumPastEvents>();
+class EventInserterBase;
 
 /**
  * This PPS just retrieves the value from EventInserter User Object
@@ -29,14 +25,15 @@ InputParameters validParams<NumPastEvents>();
 class NumPastEvents : public GeneralPostprocessor
 {
 public:
-  NumPastEvents(const InputParameters & parameters);
+  NumPastEvents(const InputParameters &parameters);
+  static InputParameters validParams();
 
-  virtual void initialize() {};  // not used
-  virtual void execute() {};  // not used
+  virtual void initialize(){}; // not used
+  virtual void execute(){};    // not used
   virtual Real getValue();
 
 protected:
-  const EventInserterBase & _inserter;
+  const EventInserterBase &_inserter;
 };
 
 #endif /* NUMPASTEVENTS_H */

@@ -15,11 +15,12 @@
 #include "GaussianUserObject.h"
 #include "RandomPointUserObject.h"
 
-template<>
-InputParameters validParams<GaussianUserObject>()
+registerMooseObject("PrariedogApp", GaussianUserObject);
+
+InputParameters GaussianUserObject::validParams()
 {
   // Define the general parameters
-  InputParameters params = validParams<GeneralUserObject>();
+  auto params = GeneralUserObject::validParams();
   params.addClassDescription("Function for generating Gaussian distributions normalized to the mesh dimension.");
 
   params.addParam<Real>("scale", 1.0, "Scaling factor");

@@ -18,15 +18,11 @@
 #include "Marker.h"
 #include "MooseRandom.h"
 
-class RandomCircleMarker;
-
-template<>
-InputParameters validParams<RandomCircleMarker>();
-
 class RandomCircleMarker : public Marker
 {
 public:
-  RandomCircleMarker(const InputParameters & parameters);
+  RandomCircleMarker(const InputParameters &parameters);
+  static InputParameters validParams();
 
 protected:
   virtual void initialSetup();
@@ -35,7 +31,7 @@ protected:
 
   void setup();
 
-  const  Real _r;
+  const Real _r;
   Point _p;
   MarkerValue _marker_value;
 

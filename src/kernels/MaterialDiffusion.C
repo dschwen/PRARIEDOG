@@ -14,14 +14,15 @@
 
 #include "MaterialDiffusion.h"
 
+registerMooseObject("PrariedogApp", MaterialDiffusion);
+
 /**
  * This function defines the valid parameters for
  * this Kernel and their default values
  */
-template<>
-InputParameters validParams<MaterialDiffusion>()
+InputParameters MaterialDiffusion::validParams()
 {
-  InputParameters params = validParams<Diffusion>();
+  auto params = Diffusion::validParams();
   params.addRequiredParam<MaterialPropertyName>("diffusivity_name", "Name of the material property for diffusion coefficient");
   return params;
 }

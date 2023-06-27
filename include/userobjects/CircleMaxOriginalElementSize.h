@@ -18,19 +18,14 @@
 #include "ElementUserObject.h"
 #include "MooseMesh.h"
 
-//Forward Declarations
-class CircleMaxOriginalElementSize;
-
-template<>
-InputParameters validParams<CircleMaxOriginalElementSize>();
-
 /**
  * Computes the max element size inside a circle on the *original* mesh
  */
 class CircleMaxOriginalElementSize : public ElementUserObject
 {
 public:
-  CircleMaxOriginalElementSize(const InputParameters & parameters);
+  CircleMaxOriginalElementSize(const InputParameters &parameters);
+  static InputParameters validParams();
 
   /**
    * Given a Point and a radius, return the max element size inside a circle on
@@ -42,7 +37,7 @@ public:
    *
    * @return The max element size inside a circle on the *original* mesh
    */
-  Real value(const Point & p, const Real & radius) const;
+  Real value(const Point &p, const Real &radius) const;
 
   /**
    * This is called before execute so you can reset any internal data.
@@ -59,7 +54,7 @@ public:
    * Called when using threading.  You need to combine the data from "y"
    * into _this_ object.
    */
-  virtual void threadJoin(const UserObject & y);
+  virtual void threadJoin(const UserObject &y);
 
   /**
    * Called _once_ after execute has been called all all "objects".
@@ -82,7 +77,7 @@ protected:
   bool _rebuild_map;
 
   /// Reference to the mesh
-  const MooseMesh & _mesh;
+  const MooseMesh &_mesh;
 
   /// This map will hold the element sizes
   std::map<dof_id_type, Real> _original_element_sizes;

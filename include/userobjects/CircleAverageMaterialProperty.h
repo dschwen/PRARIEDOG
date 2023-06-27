@@ -17,19 +17,14 @@
 
 #include "CircleAverageMaterialPropertyBase.h"
 
-//Forward Declarations
-class CircleAverageMaterialProperty;
-
-template<>
-InputParameters validParams<CircleAverageMaterialProperty>();
-
 /**
  * Computes the average value of a material property in side a circle
  */
 class CircleAverageMaterialProperty : public CircleAverageMaterialPropertyBase
 {
 public:
-  CircleAverageMaterialProperty(const InputParameters & parameters);
+  CircleAverageMaterialProperty(const InputParameters &parameters);
+  static InputParameters validParams();
 
   /**
    * Given a Point and a radius, return the average value for a material property in that circle
@@ -40,7 +35,7 @@ public:
    *
    * @return The average value of a material property in that circle
    */
-  Real averageValue(const Point & p, const Real & radius) const;
+  Real averageValue(const Point &p, const Real &radius) const;
 
   /**
    * This is called before execute so you can reset any internal data.
@@ -57,7 +52,7 @@ public:
    * Called when using threading.  You need to combine the data from "y"
    * into _this_ object.
    */
-  virtual void threadJoin(const UserObject & y);
+  virtual void threadJoin(const UserObject &y);
 
   /**
    * Called _once_ after execute has been called all all "objects".

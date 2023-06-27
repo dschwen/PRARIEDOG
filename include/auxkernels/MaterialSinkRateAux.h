@@ -16,23 +16,18 @@
 
 #include "AuxKernel.h"
 
-//Forward Declarations
-class MaterialSinkRateAux;
-
-template<>
-InputParameters validParams<MaterialSinkRateAux>();
-
 class MaterialSinkRateAux : public AuxKernel
 {
 public:
-  MaterialSinkRateAux(const InputParameters & parameters);
+  MaterialSinkRateAux(const InputParameters &parameters);
+  static InputParameters validParams();
 
 protected:
   virtual Real computeValue();
 
-  const MaterialProperty<Real> & _diffusivity;
-  const MaterialProperty<Real> & _sink_strength;
-  const VariableValue & _v;
+  const MaterialProperty<Real> &_diffusivity;
+  const MaterialProperty<Real> &_sink_strength;
+  const VariableValue &_v;
 };
 
-#endif //MATERIALSINKRATEAUX_H
+#endif // MATERIALSINKRATEAUX_H

@@ -17,16 +17,11 @@
 
 #include "AuxKernel.h"
 
-//Forward Declarations
-class ElementHLevel;
-
-template<>
-InputParameters validParams<ElementHLevel>();
-
 class ElementHLevel : public AuxKernel
 {
 public:
-  ElementHLevel(const InputParameters & parameters);
+  ElementHLevel(const InputParameters &parameters);
+  static InputParameters validParams();
 
 protected:
   virtual Real computeValue();

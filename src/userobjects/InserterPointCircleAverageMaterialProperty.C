@@ -17,10 +17,11 @@
 
 #include "libmesh/parallel_algebra.h"
 
-template<>
-InputParameters validParams<InserterPointCircleAverageMaterialProperty>()
+registerMooseObject("PrariedogApp", InserterPointCircleAverageMaterialProperty);
+
+InputParameters InserterPointCircleAverageMaterialProperty::validParams()
 {
-  InputParameters params = validParams<CircleAverageMaterialPropertyBase>();
+  auto params = CircleAverageMaterialPropertyBase::validParams();
 
   params.addRequiredParam<UserObjectName>("inserter", "Name of the EventInserter UserObject.");
   params.addRequiredParam<Real>("radius", "Radius of circle to average material property in.");

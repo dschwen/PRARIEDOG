@@ -14,10 +14,11 @@
 
 #include "ElementHLevel.h"
 
-template<>
-InputParameters validParams<ElementHLevel>()
+registerMooseObject("PrariedogApp", ElementHLevel);
+
+InputParameters ElementHLevel::validParams()
 {
-  InputParameters params = validParams<AuxKernel>();
+  auto params = AuxKernel::validParams();
   return params;
 }
 

@@ -14,10 +14,11 @@
 
 #include "CoupledSinkRateAux.h"
 
-template<>
-InputParameters validParams<CoupledSinkRateAux>()
+registerMooseObject("PrariedogApp", CoupledSinkRateAux);
+
+InputParameters CoupledSinkRateAux::validParams()
 {
-  InputParameters params = validParams<AuxKernel>();
+  auto params = AuxKernel::validParams();
   params.addRequiredParam<MaterialPropertyName>("diffusivity_name", "The name of the diffusivity material property.");
   params.addRequiredCoupledVar("solution_variable", "The name of the solution variable.");
   params.addRequiredCoupledVar("sink_strength_variable", "The name of the sink strength aux variable.");

@@ -12,13 +12,14 @@
 // libmesh includes
 #include "libmesh/quadrature.h"
 
-template<>
-InputParameters validParams<SinkMapUserObject>()
+registerMooseObject("PrariedogApp", SinkMapUserObject);
+
+InputParameters SinkMapUserObject::validParams()
 {
   MooseEnum sink_placement("corner inside", "corner");
   MooseEnum sink_shape_3d("spheres lines", "lines");
 
-  InputParameters params = validParams<ElementUserObject>();
+  auto params = ElementUserObject::validParams();
   params.addRequiredParam<Real>("spacing", "Distance to space sink centers");
   params.addRequiredParam<Real>("strength", "Average strength of the overall sink map.");
   params.addRequiredParam<UserObjectName>("gaussian_user_object", "Name of the GaussianUserObject to use for sink shapes.");

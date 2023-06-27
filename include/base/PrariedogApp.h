@@ -1,22 +1,13 @@
-#ifndef PRARIEDOGAPP_H
-#define PRARIEDOGAPP_H
+#pragma once
 
 #include "MooseApp.h"
-
-class PrariedogApp;
-
-template<>
-InputParameters validParams<PrariedogApp>();
 
 class PrariedogApp : public MooseApp
 {
 public:
   PrariedogApp(InputParameters parameters);
-  virtual ~PrariedogApp();
+  static InputParameters validParams();
 
   static void registerApps();
-  static void registerObjects(Factory & factory);
-  static void associateSyntax(Syntax & syntax, ActionFactory & action_factory);
+  static void registerAll(Factory &f, ActionFactory &af, Syntax &s);
 };
-
-#endif /* PRARIEDOGAPP_H */

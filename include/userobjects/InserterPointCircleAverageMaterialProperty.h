@@ -18,12 +18,8 @@
 #include "CircleAverageMaterialPropertyBase.h"
 #include "MooseMesh.h"
 
-//Forward Declarations
-class InserterPointCircleAverageMaterialProperty;
+// Forward Declarations
 class EventInserterBase;
-
-template<>
-InputParameters validParams<InserterPointCircleAverageMaterialProperty>();
 
 /**
  * Computes the average value of a material property in side a circle
@@ -31,12 +27,13 @@ InputParameters validParams<InserterPointCircleAverageMaterialProperty>();
 class InserterPointCircleAverageMaterialProperty : public CircleAverageMaterialPropertyBase
 {
 public:
-  InserterPointCircleAverageMaterialProperty(const InputParameters & parameters);
+  InserterPointCircleAverageMaterialProperty(const InputParameters &parameters);
+  static InputParameters validParams();
 
   /**
    * Look up average material property value by Point if it is in an Event list.
    */
-  Real averageValue(const Point & p) const;
+  Real averageValue(const Point &p) const;
 
   /**
    * This is called at the beginning of the simulation.
@@ -58,7 +55,7 @@ public:
    * Called when using threading.  You need to combine the data from "y"
    * into _this_ object.
    */
-  virtual void threadJoin(const UserObject & y);
+  virtual void threadJoin(const UserObject &y);
 
   /**
    * Called _once_ after execute has been called all all "objects".
@@ -73,7 +70,7 @@ protected:
   typedef std::vector<Event> EventList;
 
   /// Reference to EventInserter UserObject
-  const EventInserterBase * _inserter;
+  const EventInserterBase *_inserter;
 
   /// Distance to search around inserter points
   const Real _radius;
@@ -89,7 +86,6 @@ protected:
 
   /// Number of events
   unsigned int _Npoints;
-
 };
 
 #endif

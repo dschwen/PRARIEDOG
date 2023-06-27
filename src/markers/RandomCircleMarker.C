@@ -15,10 +15,11 @@
 #include "RandomCircleMarker.h"
 #include "MooseMesh.h"
 
-template<>
-InputParameters validParams<RandomCircleMarker>()
+registerMooseObject("PrariedogApp", RandomCircleMarker);
+
+InputParameters RandomCircleMarker::validParams()
 {
-  InputParameters params = validParams<Marker>();
+  auto params = Marker::validParams();
   params.addRequiredParam<Real>("radius", "Distance from the center of the circle to mark elements");
   params.addParam<unsigned int>("seed", 3, "Seed the random number generator.");
 

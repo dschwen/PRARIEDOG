@@ -16,10 +16,11 @@
 
 #include "libmesh/parallel_algebra.h"
 
-template<>
-InputParameters validParams<CircleAverageMaterialProperty>()
+registerMooseObject("PrariedogApp", CircleAverageMaterialProperty);
+
+InputParameters CircleAverageMaterialProperty::validParams()
 {
-  InputParameters params = validParams<CircleAverageMaterialPropertyBase>();
+  auto params = CircleAverageMaterialPropertyBase::validParams();
 
   return params;
 }

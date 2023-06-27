@@ -18,25 +18,21 @@
 #include "GeneralPostprocessor.h"
 #include "CircleMaxOriginalElementSize.h"
 
-class CircleMaxOriginalElementSizePPS;
-
-template<>
-InputParameters validParams<CircleMaxOriginalElementSizePPS>();
-
 /**
  * This PPS just retrieves the value from CircleMaxOriginalElementSize User Object
  */
 class CircleMaxOriginalElementSizePPS : public GeneralPostprocessor
 {
 public:
-  CircleMaxOriginalElementSizePPS(const InputParameters & parameters);
+  CircleMaxOriginalElementSizePPS(const InputParameters &parameters);
+  static InputParameters validParams();
 
-  virtual void initialize() {};  // not used
-  virtual void execute() {};  // not used
+  virtual void initialize(){}; // not used
+  virtual void execute(){};    // not used
   virtual Real getValue();
 
 protected:
-  const CircleMaxOriginalElementSize & _uo;
+  const CircleMaxOriginalElementSize &_uo;
   const Point _p;
   const Real _radius;
 };

@@ -14,12 +14,12 @@
 
 #include "Recombination.h"
 
-template <> InputParameters validParams<Recombination>()
+registerMooseObject("PrariedogApp", Recombination);
+
+InputParameters Recombination::validParams()
 {
-  InputParameters params = validParams<Kernel>();
-
+  auto params = Kernel::validParams();
   params.addRequiredCoupledVar("other_variable", "The coupled variable.");
-
   return params;
 }
 

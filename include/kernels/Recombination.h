@@ -11,20 +11,15 @@
 /*                                                              */
 /*            See COPYRIGHT for full restrictions               */
 /****************************************************************/
-#ifndef RECOMBINATION_H
-#define RECOMBINATION_H
+#pragma once
 
 #include "Kernel.h"
-
-class Recombination;
-
-template <>
-InputParameters validParams<Recombination>();
 
 class Recombination : public Kernel
 {
 public:
-  Recombination(const InputParameters & parameters);
+  Recombination(const InputParameters &parameters);
+  static InputParameters validParams();
 
 protected:
   virtual Real computeQpResidual();
@@ -33,8 +28,5 @@ protected:
 
 private:
   unsigned int _v_var;
-  const VariableValue & _v;
-
+  const VariableValue &_v;
 };
-
-#endif // RECOMBINATION_H

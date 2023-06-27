@@ -15,24 +15,20 @@
 #define EVENTTIMESTEPPER_H
 
 #include "TimeStepper.h"
-#include "EventInserterBase.h"
 #include "UserObjectInterface.h"
 
-class EventTimeStepper;
-
-template<>
-InputParameters validParams<EventTimeStepper>();
+class EventInserterBase;
 
 /**
  * Adjust the timestep to line up with events determined in an EventInserter UserObject.
  * This time stepper allows the user to specify a factor to apply to the previous timestep.
  */
-class EventTimeStepper :
-  public TimeStepper,
-  public UserObjectInterface
+class EventTimeStepper : public TimeStepper,
+                         public UserObjectInterface
 {
 public:
-  EventTimeStepper(const InputParameters & parameters);
+  EventTimeStepper(const InputParameters &parameters);
+  static InputParameters validParams();
 
 protected:
   virtual void init();
@@ -49,13 +45,13 @@ protected:
   const bool _verbose;
 
   /// Flag if dt was cut
-  bool & _was_dt_cut;
+  bool &_was_dt_cut;
 
   /// timestep computed by computeDT
-  Real & _new_dt;
+  Real &_new_dt;
 
   /// Pointer to EventInserter UserObject
-  const EventInserterBase * _inserter_ptr;
+  const EventInserterBase *_inserter_ptr;
 };
 
 #endif /* EVENTTIMESTEPPER_H */

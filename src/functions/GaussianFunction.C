@@ -15,11 +15,12 @@
 #include "GaussianFunction.h"
 #include "MooseMesh.h"
 
-template<>
-InputParameters validParams<GaussianFunction>()
+  registerMooseObject("PrariedogApp", GaussianFunction);
+
+InputParameters GaussianFunction::validParams()
 {
   // Define the general parameters
-  InputParameters params = validParams<Function>();
+  auto params = Function::validParams();
   params.addClassDescription("UserObject for generating Gaussian distributions based on the dimensions of the mesh.");
 
   params.addRequiredParam<Point>("peak_location", "Center of Gaussian distribution");

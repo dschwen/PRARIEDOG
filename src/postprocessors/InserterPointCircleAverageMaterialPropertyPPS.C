@@ -15,10 +15,11 @@
 #include "InserterPointCircleAverageMaterialPropertyPPS.h"
 #include "InserterPointCircleAverageMaterialProperty.h"
 
-template<>
-InputParameters validParams<InserterPointCircleAverageMaterialPropertyPPS>()
+registerMooseObject("PrariedogApp", InserterPointCircleAverageMaterialPropertyPPS);
+
+InputParameters InserterPointCircleAverageMaterialPropertyPPS::validParams()
 {
-  InputParameters params = validParams<GeneralPostprocessor>();
+  auto params = GeneralPostprocessor::validParams();
 
   params.addRequiredParam<UserObjectName>("user_object", "The name of the InserterPointCircleAverageMaterialProperty user object");
   params.addRequiredParam<Point>("location", "Point indicating which EventInserter Event to look up.");

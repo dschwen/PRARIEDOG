@@ -11,10 +11,9 @@
 
 #include <time.h> // for time function to seed random number generator
 
-template<>
-InputParameters validParams<EventInserterBase>()
+InputParameters EventInserterBase::validParams()
 {
-  InputParameters params = validParams<GeneralUserObject>();
+  auto params = GeneralUserObject::validParams();
 
   MooseEnum distribution("uniform exponential", "uniform");
   MooseEnum removal_method("time sigma sigma_element_size_ratio", "time");

@@ -14,10 +14,11 @@
 
 #include "CircleMaxOriginalElementSizePPS.h"
 
-template<>
-InputParameters validParams<CircleMaxOriginalElementSizePPS>()
+registerMooseObject("PrariedogApp", CircleMaxOriginalElementSizePPS);
+
+InputParameters CircleMaxOriginalElementSizePPS::validParams()
 {
-  InputParameters params = validParams<GeneralPostprocessor>();
+  auto params = GeneralPostprocessor::validParams();
 
   params.addRequiredParam<UserObjectName>("user_object", "The name of the CircleMaxOriginalElementSize user object");
   params.addRequiredParam<Point>("location", "Point of the center of the circle.");

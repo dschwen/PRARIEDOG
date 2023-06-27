@@ -11,12 +11,8 @@
 #include "RandomPointUserObject.h"
 #include "MooseRandom.h"
 
-class EventInserterBase;
 class InserterPointCircleAverageMaterialProperty;
 class CircleMaxOriginalElementSize;
-
-template<>
-InputParameters validParams<EventInserterBase>();
 
 /**
  * This UserObject manages the insertion and timing of events in the simulation
@@ -26,13 +22,14 @@ InputParameters validParams<EventInserterBase>();
 class EventInserterBase : public GeneralUserObject
 {
 public:
-  EventInserterBase(const InputParameters & parameters);
+  EventInserterBase(const InputParameters &parameters);
+  static InputParameters validParams();
 
   virtual void initialSetup();
 
-  virtual void initialize(){} // Not used
+  virtual void initialize() {} // Not used
   virtual void execute();
-  virtual void finalize(){} // Not used
+  virtual void finalize() {} // Not used
 
   /// An event has an start time and a location
   typedef std::pair<Real, Point> Event;
@@ -41,19 +38,19 @@ public:
   typedef std::vector<Event> EventList;
 
   /// Get the event list
-  const EventList & getEventList() const { return _global_event_list; }
+  const EventList &getEventList() const { return _global_event_list; }
 
   /// Get the old event list
-  const EventList & getOldEventList() const { return _old_event_list; }
+  const EventList &getOldEventList() const { return _old_event_list; }
 
   /// Get time tolerance
-  const Real & getTimeTolerance() const { return _time_tol; }
+  const Real &getTimeTolerance() const { return _time_tol; }
 
   /// Get old event tracking flag
-  const bool & areOldEventsBeingTracked() const { return _track_old_events; }
+  const bool &areOldEventsBeingTracked() const { return _track_old_events; }
 
   /// Get old event removed flag
-  const bool & wasOldEventRemoved() const { return _old_event_removed; }
+  const bool &wasOldEventRemoved() const { return _old_event_removed; }
 
   /// Calculate time to next event
   Real getNewEventInterval();
@@ -99,7 +96,7 @@ protected:
   Point _test_location;
 
   /// Reference to RandomPointUserObject
-  const RandomPointUserObject & _random_point_user_object;
+  const RandomPointUserObject &_random_point_user_object;
 
   /// Random number seed
   const unsigned int _seed;
@@ -129,34 +126,34 @@ protected:
   const Real _radius;
 
   /// Pointer to another CircleAverageMaterialProperty UserObject
-  const InserterPointCircleAverageMaterialProperty * _inserter_circle_average_mat_prop_uo_ptr;
+  const InserterPointCircleAverageMaterialProperty *_inserter_circle_average_mat_prop_uo_ptr;
 
   /// Pointer to CircleMaxOriginalElementSize UserObject
-  const CircleMaxOriginalElementSize * _circle_max_elem_size_uo_ptr;
+  const CircleMaxOriginalElementSize *_circle_max_elem_size_uo_ptr;
 
   /// Flag when Event has been removed from old list
-  bool & _old_event_removed;
+  bool &_old_event_removed;
 
   /// the global list of all events
-  EventList & _global_event_list;
+  EventList &_global_event_list;
 
   /// List of old events
-  EventList & _old_event_list;
+  EventList &_old_event_list;
 
   /// List of sigma estimates for old events
-  std::vector<Real> & _old_sigma_list;
+  std::vector<Real> &_old_sigma_list;
 
   /// Random number generator instance, mutable so it can be used inside const functions
-  MooseRandom & _random;
+  MooseRandom &_random;
 
   /// Holds initial sigma from GaussianUserObject
   Real _initial_sigma;
 
   /// Count number of events
-  unsigned int & _num_past_events;
+  unsigned int &_num_past_events;
 
   /// Flag for starting up after restart
   bool _first_time_after_restart;
 };
 
-#endif //EVENTINSERTERBASE_H
+#endif // EVENTINSERTERBASE_H

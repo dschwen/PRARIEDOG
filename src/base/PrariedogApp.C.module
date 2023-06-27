@@ -3,10 +3,9 @@
 #include "AppFactory.h"
 #include "MooseSyntax.h"
 
-template<>
-InputParameters validParams<PrariedogApp>()
+InputParameters PrariedogApp::validParams()
 {
-  InputParameters params = validParams<MooseApp>();
+  auto params = MooseApp::validParams();
   return params;
 }
 

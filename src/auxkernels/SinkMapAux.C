@@ -15,10 +15,11 @@
 #include "SinkMapAux.h"
 #include "SinkMapUserObject.h"
 
-template<>
-InputParameters validParams<SinkMapAux>()
+registerMooseObject("PrariedogApp", SinkMapAux);
+
+InputParameters SinkMapAux::validParams()
 {
-  InputParameters params = validParams<AuxKernel>();
+  auto params = AuxKernel::validParams();
   params.addRequiredParam<UserObjectName>("sink_map_user_object", "The SinkMapUserObject to retrieve values from.");
   return params;
 }

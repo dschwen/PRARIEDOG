@@ -24,15 +24,11 @@
 // libmesh includes
 #include "libmesh/mesh_tools.h"
 
-class EventMarker;
-
-template<>
-InputParameters validParams<EventMarker>();
-
 class EventMarker : public Marker, public Coupleable
 {
 public:
-  EventMarker(const InputParameters & parameters);
+  EventMarker(const InputParameters &parameters);
+  static InputParameters validParams();
 
   // copying these from EventInserter.h
 
@@ -47,9 +43,9 @@ protected:
 
   virtual MarkerValue computeElementMarker();
 
-  const EventInserterBase & _inserter;
+  const EventInserterBase &_inserter;
 
-  const GaussianUserObject & _gaussian_uo;
+  const GaussianUserObject &_gaussian_uo;
 
   const Real _marker_radius;
 
@@ -71,15 +67,15 @@ protected:
 
   const Real _sink_marker_radius;
 
-  const bool  _refine_sinks_by_ratio;
+  const bool _refine_sinks_by_ratio;
 
-  const Real  _sink_sigma_mesh_ratio;
+  const Real _sink_sigma_mesh_ratio;
 
   const unsigned int _uniform_refinement_level;
 
-  const SinkMapUserObject * _sink_map_user_object_ptr;
+  const SinkMapUserObject *_sink_map_user_object_ptr;
 
-  const GaussianUserObject * _sink_gaussian_user_object_ptr;
+  const GaussianUserObject *_sink_gaussian_user_object_ptr;
 
   bool _event_incoming;
 

@@ -17,21 +17,11 @@
 
 #include "Diffusion.h"
 
-//Forward Declarations
-class MaterialDiffusion;
-
-/**
- * validParams returns the parameters that this Kernel accepts / needs
- * The actual body of the function MUST be in the .C file.
- */
-template<>
-InputParameters validParams<MaterialDiffusion>();
-
 class MaterialDiffusion : public Diffusion
 {
 public:
-
-  MaterialDiffusion(const InputParameters & parameters);
+  MaterialDiffusion(const InputParameters &parameters);
+  static InputParameters validParams();
 
 protected:
   virtual Real computeQpResidual();
@@ -41,6 +31,6 @@ protected:
    * This MooseArray will hold the reference we need to our
    * material property from the Material class
    */
-  const MaterialProperty<Real> & _diffusivity;
+  const MaterialProperty<Real> &_diffusivity;
 };
-#endif //MATERIALDIFFUSION_H
+#endif // MATERIALDIFFUSION_H

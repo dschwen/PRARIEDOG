@@ -15,10 +15,11 @@
 #include "CircleAverageMaterialPropertyPPS.h"
 #include "CircleAverageMaterialProperty.h"
 
-template<>
-InputParameters validParams<CircleAverageMaterialPropertyPPS>()
+registerMooseObject("PrariedogApp", CircleAverageMaterialPropertyPPS);
+
+InputParameters CircleAverageMaterialPropertyPPS::validParams()
 {
-  InputParameters params = validParams<GeneralPostprocessor>();
+  auto params = GeneralPostprocessor::validParams();
 
   params.addRequiredParam<UserObjectName>("user_object", "The name of the CircleAverageMaterialProperty user object");
   params.addRequiredParam<Point>("location", "Point of the center of the circle.");

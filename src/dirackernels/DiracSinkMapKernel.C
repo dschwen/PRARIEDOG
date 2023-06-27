@@ -16,10 +16,11 @@
 #include "SinkMapUserObject.h"
 #include "MooseMesh.h"
 
-template<>
-InputParameters validParams<DiracSinkMapKernel>()
+registerMooseObject("PrariedogApp", DiracSinkMapKernel);
+
+InputParameters DiracSinkMapKernel::validParams()
 {
-  InputParameters params = validParams<DiracKernel>();
+  auto params = DiracKernel::validParams();
   params.addRequiredParam<UserObjectName>("sink_map_user_object", "The name of the SinkMapUserObject.");
   params.addRequiredParam<MaterialPropertyName>("diffusivity_name", "Name of the material property for diffusion coefficient.");
   params.addRequiredParam<PostprocessorName>("volume_pps", "The name of the VolumePostprocessor.");

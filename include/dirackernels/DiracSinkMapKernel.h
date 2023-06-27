@@ -18,32 +18,29 @@
 // Moose Includes
 #include "DiracKernel.h"
 
-//Forward Declarations
-class DiracSinkMapKernel;
+// Forward Declarations
 class SinkMapUserObject;
-
-template<>
-InputParameters validParams<DiracSinkMapKernel>();
 
 class DiracSinkMapKernel : public DiracKernel
 {
 public:
-  DiracSinkMapKernel(const InputParameters & parameters);
+  DiracSinkMapKernel(const InputParameters &parameters);
+  static InputParameters validParams();
 
   virtual void addPoints();
   virtual Real computeQpResidual();
   virtual Real computeQpJacobian();
 
 protected:
-  const SinkMapUserObject & _sink_map_uo;
+  const SinkMapUserObject &_sink_map_uo;
 
-  const MaterialProperty<Real> & _diffusivity;
+  const MaterialProperty<Real> &_diffusivity;
 
   Real _num_points;
 
   Real _sink_strength;
 
-  const PostprocessorValue & _volume;
+  const PostprocessorValue &_volume;
 };
 
-#endif //DIRACSINKMAPKERNEL_H
+#endif // DIRACSINKMAPKERNEL_H

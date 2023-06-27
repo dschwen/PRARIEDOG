@@ -17,11 +17,7 @@
 
 #include "GeneralPostprocessor.h"
 
-class CircleAverageMaterialPropertyPPS;
 class CircleAverageMaterialProperty;
-
-template<>
-InputParameters validParams<CircleAverageMaterialPropertyPPS>();
 
 /**
  * This PPS just retrieves the value from CircleAverageMaterialProperty User Object
@@ -29,14 +25,15 @@ InputParameters validParams<CircleAverageMaterialPropertyPPS>();
 class CircleAverageMaterialPropertyPPS : public GeneralPostprocessor
 {
 public:
-  CircleAverageMaterialPropertyPPS(const InputParameters & parameters);
+  CircleAverageMaterialPropertyPPS(const InputParameters &parameters);
+  static InputParameters validParams();
 
-  virtual void initialize() {};  // not used
-  virtual void execute() {};  // not used
+  virtual void initialize(){}; // not used
+  virtual void execute(){};    // not used
   virtual Real getValue();
 
 protected:
-  const CircleAverageMaterialProperty & _uo;
+  const CircleAverageMaterialProperty &_uo;
   const Point _p;
   const Real _radius;
 };

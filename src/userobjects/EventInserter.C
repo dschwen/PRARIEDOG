@@ -6,10 +6,11 @@
 /****************************************************************/
 #include "EventInserter.h"
 
-template<>
-InputParameters validParams<EventInserter>()
+registerMooseObject("PrariedogApp", EventInserter);
+
+InputParameters EventInserter::validParams()
 {
-  InputParameters params = validParams<EventInserterBase>();
+  auto params = EventInserterBase::validParams();
 
   params.addRequiredParam<Real>("mean", "Mean (time) of probability distribution");
 

@@ -17,13 +17,9 @@
 
 #include "Kernel.h"
 
-//Forward Declarations
-class EventInserterSource;
+// Forward Declarations
 class EventInserterBase;
 class GaussianUserObject;
-
-template<>
-InputParameters validParams<EventInserterSource>();
 
 /**
  * Define the Kernel for inserting events based on an
@@ -33,8 +29,8 @@ InputParameters validParams<EventInserterSource>();
 class EventInserterSource : public Kernel
 {
 public:
-
-  EventInserterSource(const InputParameters & parameters);
+  EventInserterSource(const InputParameters &parameters);
+  static InputParameters validParams();
 
 protected:
   /**
@@ -47,19 +43,19 @@ protected:
    */
   virtual Real computeQpResidual();
 
-  const EventInserterBase & _inserter;
+  const EventInserterBase &_inserter;
 
-  const GaussianUserObject * _gaussian_user_object_ptr;
+  const GaussianUserObject *_gaussian_user_object_ptr;
 
   const bool _use_uniform_source;
 
   const Real _magnitude;
 
-  const PostprocessorValue & _volume;
+  const PostprocessorValue &_volume;
 
   bool _is_event_active;
 
   Point _active_point;
 };
 
-#endif //EVENTINSERTERSOURCE_H
+#endif // EVENTINSERTERSOURCE_H

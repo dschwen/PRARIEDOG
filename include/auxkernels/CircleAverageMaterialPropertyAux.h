@@ -17,22 +17,19 @@
 
 #include "AuxKernel.h"
 
-//Forward Declarations
-class CircleAverageMaterialPropertyAux;
+// Forward Declarations
 class CircleAverageMaterialProperty;
-
-template<>
-InputParameters validParams<CircleAverageMaterialPropertyAux>();
 
 class CircleAverageMaterialPropertyAux : public AuxKernel
 {
 public:
-  CircleAverageMaterialPropertyAux(const InputParameters & parameters);
+  CircleAverageMaterialPropertyAux(const InputParameters &parameters);
+  static InputParameters validParams();
 
 protected:
   virtual Real computeValue();
 
-  const CircleAverageMaterialProperty & _uo;
+  const CircleAverageMaterialProperty &_uo;
   const Real _radius;
 };
 

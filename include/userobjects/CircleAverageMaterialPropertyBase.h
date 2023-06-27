@@ -18,19 +18,14 @@
 #include "ElementIntegralUserObject.h"
 #include "MooseMesh.h"
 
-//Forward Declarations
-class CircleAverageMaterialPropertyBase;
-
-template<>
-InputParameters validParams<CircleAverageMaterialPropertyBase>();
-
 /**
  * Computes the average value of a material property in side a circle
  */
 class CircleAverageMaterialPropertyBase : public ElementIntegralUserObject
 {
 public:
-  CircleAverageMaterialPropertyBase(const InputParameters & parameters);
+  CircleAverageMaterialPropertyBase(const InputParameters &parameters);
+  static InputParameters validParams();
 
   /**
    * Compute the material property at the quadrature point for the integral
@@ -42,13 +37,13 @@ protected:
   Real distance(Point p1, Point p2) const;
 
   /// This will hold the material property of interest
-  const MaterialProperty<Real> & _mat_prop;
+  const MaterialProperty<Real> &_mat_prop;
 
   /// Variable number for checking periodicity
   const int _periodic_var;
 
   /// Reference to the mesh
-  const MooseMesh & _mesh;
+  const MooseMesh &_mesh;
 };
 
 #endif
